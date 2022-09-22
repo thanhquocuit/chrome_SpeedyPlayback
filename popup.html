@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Water Popup</title>
+	<style type="text/css">
+		body {
+			width: 550px;
+			font-family: "Arial Unicode MS", "DejaVu Sans", Symbola, Quivira, "Segoe UI Symbol", UniversaliaPlus;
+		}
+
+		.slidecontainer {
+			width: 100%;
+			/* Width of the outside container */
+		}
+
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			height: 15px;
+			border-radius: 5px;
+			background: #d3d3d3;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #4CAF50;
+			cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #4CAF50;
+			cursor: pointer;
+		}
+
+		button {
+			border: 1px solid;
+			border-radius: 2px;
+			width: 40px;
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		button:hover {
+			background-color: lightgray;
+		}
+
+		button .small {
+			border: 1px solid;
+			border-radius: 2px;
+			width: 20px;
+		}
+
+		.timeBox {
+			position: absolute;
+			top: 9px;
+			left: 13px;
+		}
+
+		.timespan {
+			display: block;
+			height: 3px;
+			border: 1px solid;
+			margin: 5px 0 5px;
+			cursor: pointer;
+		}
+
+		.timespan span {
+			width: 0%;
+			height: 100%;
+			display: block;
+			background-color: red;
+		}
+
+		.slider_maker {
+			margin-top: 2px;
+			margin-left: 28.5%;
+			height: 15px;
+			width: 14.2%;
+			background-color: grey;
+			position: absolute;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="slidecontainer">
+		<div>
+			<div class="slider_maker"></div>
+			<input type="range" min="-2.0" max="5.0" value="1.0" step="0.1" class="slider" id="myRange">
+			<div id="timeBox" class="timeBox"></div>
+			<div id="myOutput" style="position: absolute; right: 10px; top: 9px;"></div>
+		</div>
+		<div id="timespan_cont" class="timespan"><span id="timespan"></span></div>
+		<div>
+			<button id="btnSet_0">
+				<a id="btnSet_0_play">►</a>
+				<a id="btnSet_0_stop" style="display:none">■</a>
+			</button>
+			<button id="btnSet_sound">
+				<a id="btnSet_sound_play" style="font-size: smaller;">♬</a>
+				<a id="btnSet_sound_stop" style="font-size: smaller;display:none">◯</a>
+			</button>
+			<button id="btnSet_1">1x</button>
+			<button id="btnSet_1_25">.25x</button>
+			<button id="btnSet_1_5">.5x</button>
+			<button id="btnSet_1_75">.75x</button>
+			<button id="btnSet_2">2x</button>
+			<button id="btnSet_D" class="small">D</button>
+			<div style="float:right;">
+				<button id="btnSkipYoutube" style="width: 65px;">Skip Ads</button>
+				<button id="btnBak10">◄◄</button>
+				<button id="btnFor10">►►</button>
+				<button id="btnEnd">►|</button>
+			</div>
+		</div>
+		<div style="margin: 4px 0 4px 0; height: 16px">
+			<div style="display: inline-block;">
+				<input type="checkbox" id="cbox-smooth-forward" checked>
+				<label for="cbox-smooth-forward">Smooth forward</label>
+			</div>
+			<div style="float:right">
+				<button id="btnSuspendTabs" style="width: auto;">Suspend tabs</button>
+			</div>
+		</div>
+	</div>
+	<script src="ui.js"></script>
+</body>
+
+</html>
