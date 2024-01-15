@@ -227,13 +227,14 @@
 		};
 		document.getElementById("btnSkipYoutube").onclick = function(e){
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+				chrome.tabs.sendMessage(tabs[0].id, {msg: "speedy_skip_to_end"});
 				chrome.tabs.sendMessage(tabs[0].id, {msg: "speedy_skip_ytp"});
 				chrome.tabs.sendMessage(tabs[0].id, {msg: "speedy_change_speed", speed: window.lastPlaybackRate});
 			});
 			e.stopPropagation();
 			e.stopImmediatePropagation()
 		};
-		document.getElementById("btnSuspendTabs").onclick = function(e) {			
+		document.getElementById("btnSuspendTabs").onclick = function(e) {
 			chrome.tabs.query({currentWindow: true}, tabs => {
 				for(tab of tabs){
 					if(!tab.selected){
@@ -242,7 +243,10 @@
 					}
 				}				
 			});
-		}		
+		}
+		document.getElementById("btnSettings").onclick = function(e) {
+			chrome.tabs.create({ url: chrome.runtime.getURL('homepage.html') });
+		}
 		
 		function windowKeydown(keyCode){
 			switch (keyCode) {
